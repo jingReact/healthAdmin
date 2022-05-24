@@ -1,18 +1,21 @@
 import { Button, Checkbox, Divider, Form, Input } from 'antd';
 import { Header } from 'antd/lib/layout/layout';
 import './login.css'
+import {
+    UserOutlined,
+    LockOutlined
+} from '@ant-design/icons';
+
 const img = require('../../assets/images/icon_yiju.png')
 const keft_img = require('../../assets/images/left_img.png')
-const Login = () => {
+const Login = (props) => {
     const onFinish = (values) => {
-        
         console.log('Success:', values);
+        console.log(props, 900)
     };
-
     const onFinishFailed = (errorInfo) => {
         console.log('Failed:', errorInfo);
     };
-
     return (
         <div className='login'>
             <header className='fotter'>
@@ -38,30 +41,31 @@ const Login = () => {
                     autoComplete='true'
                 >
                     <div className='username denglu' >登陆</div>
-
                     <div className='username'>账号</div>
                     <Form.Item
+                        className='Item'
                         name="username"
                         rules={[
                             {
-                                required: true,
+                                required: false,
                                 message: 'Please input your username!',
                             },
                         ]}
                     >
-                        <Input />
+                        <UserOutlined style={{ color: '#08c'}} className='iconClass' /> <Input />
                     </Form.Item>
                     <div className='username'>密码</div>
                     <Form.Item
+                        className='Item'
                         name="password"
                         rules={[
                             {
-                                required: true,
+                                required: false,
                                 message: 'Please input your password!',
                             },
                         ]}
                     >
-                        <Input.Password />
+                        <LockOutlined style={{ color: '#08c' }} className='iconClass' /> <Input.Password />
                     </Form.Item>
                     <Form.Item
                         wrapperCol={{
