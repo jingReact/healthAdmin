@@ -1,0 +1,53 @@
+
+    .fotter{
+        background: #211d7c;
+        height: 90px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
+    .fotter_img{
+        height: 70px;
+    }
+    .fotter_tittle{
+        padding: 10px;
+        font-size: 22px;
+        color: aliceblue;
+        font-weight: bold;
+    }
+   
+    .action{
+        display:flex;
+        justify-content: space-around;
+    }
+    .section_img{
+        width: 40vw;
+        margin:100px -100px;
+        position: relative;
+
+    }
+    .section_Form{
+        width: 30vw;
+       margin: 13% -12% 0 0;
+    }
+    .username{
+        font-size: 15px;
+        color: #ddd;
+    }
+    .denglu{
+        font-size: 31px;
+        width: 62px;
+        height: 51px;
+        margin-bottom: 30px;
+        border-bottom: 6px aliceblue solid;
+    }
+    .subnit{
+        margin-top: 30px;
+        width: 66%;
+        height: 6vh;
+        line-height:1vh ;
+        font-size: 23px;
+        border-radius: 15px;
+        border: none;
+        background-color: #4357df;
+    }
