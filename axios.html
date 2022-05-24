@@ -20,9 +20,8 @@
     <script>
         document.getElementsByClassName('aaa')[0].addEventListener(
             'click',function(){
-                console.log(111)
                 const xhr=new XMLHttpRequest()
-                xhr.opne('Get','http:')
+                xhr.open('GET','http://127.0.0.1:8000/sercer')
                 xhr.send()
                 xhr.onreadystatechange=function(){
                     if(xhr.readyState==4){

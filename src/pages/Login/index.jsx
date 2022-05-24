@@ -1,16 +1,29 @@
 import { Button, Checkbox, Divider, Form, Input } from 'antd';
 import { Header } from 'antd/lib/layout/layout';
+import { Outlet, useNavigate } from "react-router-dom";
+
+import  {login} from '../../api/login'
 import './login.css'
 import {
     UserOutlined,
     LockOutlined
-} from '@ant-design/icons';
+} from '@ant-design/icons'
 
 const img = require('../../assets/images/icon_yiju.png')
 const keft_img = require('../../assets/images/left_img.png')
 const Login = (props) => {
+    const navigate = useNavigate()
     const onFinish = (values) => {
         console.log('Success:', values);
+        let params={
+            userName:1111
+        }
+        login(params).then(res=>{
+            console.log(res,666)
+        })
+        navigate(`/home`, {
+            replace: false,
+        })
         console.log(props, 900)
     };
     const onFinishFailed = (errorInfo) => {
@@ -27,18 +40,12 @@ const Login = (props) => {
                 <Form
                     className='section_Form'
                     name="basic"
-                    labelCol={{
-                        span: 8,
-                    }}
-                    wrapperCol={{
-                        span: 16,
-                    }}
-                    initialValues={{
-                        remember: true,
-                    }}
+                    labelCol={{ span: 8 }}
+                    wrapperCol={{ span: 16 }}
+                    initialValues={{ remember: true }}
                     onFinish={onFinish}
                     onFinishFailed={onFinishFailed}
-                    autoComplete='true'
+                    autoComplete="off"
                 >
                     <div className='username denglu' >登陆</div>
                     <div className='username'>账号</div>
@@ -52,7 +59,8 @@ const Login = (props) => {
                             },
                         ]}
                     >
-                        <UserOutlined style={{ color: '#08c'}} className='iconClass' /> <Input />
+                        <UserOutlined style={{ color: '#08c' }} className='iconClass' />
+                        <Input />
                     </Form.Item>
                     <div className='username'>密码</div>
                     <Form.Item
@@ -65,7 +73,8 @@ const Login = (props) => {
                             },
                         ]}
                     >
-                        <LockOutlined style={{ color: '#08c' }} className='iconClass' /> <Input.Password />
+                        <LockOutlined style={{ color: '#08c' }} className='iconClass' />
+                        <Input.Password />
                     </Form.Item>
                     <Form.Item
                         wrapperCol={{
@@ -78,6 +87,7 @@ const Login = (props) => {
                     </Form.Item>
                 </Form>
             </section>
+            <Outlet />
         </div>
     );
 };
