@@ -1,66 +1,126 @@
-import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/icons';
-import { Menu } from 'antd';
-import { useState } from 'react';
-import './index'
-function getItem(label, key, icon, children, type) {
-  return {
-    key,
-    icon,
-    children,
-    label,
-    type,
-  };
-}
+import { LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/icons';
+import { Layout, Menu } from 'antd';
+import React from 'react';
+import { useNavigate ,Outlet} from 'react-router-dom'
+const { Header, Content, Sider } = Layout;
 
-const items = [
-  getItem('Navigation One', 'sub1', <MailOutlined />, [
-    getItem('Option 1', '1'),
-    getItem('Option 2', '2'),
-    getItem('Option 3', '3'),
-    getItem('Option 4', '4'),
-  ]),
-  getItem('Navigation Two', 'sub2', <AppstoreOutlined />, [
-    getItem('Option 5', '5'),
-    getItem('Option 6', '6'),
-    getItem('Submenu', 'sub3', null, [getItem('Option 7', '7'), getItem('Option 8', '8')]),
-  ]),
-  getItem('Navigation Three', 'sub4', < SettingOutlined/>, [
-    getItem('Option 9', '9'),
-    getItem('Option 10', '10'),
-    getItem('Option 11', '11'),
-    getItem('Option 12', '12'),
-  ]),
-]; // submenu keys of first level
-
-const rootSubmenuKeys = ['sub1', 'sub2', 'sub4'];
-
+const items2 = [
+  {
+    key: '/home/list',
+    icon: React.createElement(UserOutlined),
+    label: '首页',
+  },
+  {
+    key: '/home/dingdan',
+    icon: React.createElement(UserOutlined),
+    label: '订单管理',
+    children: [
+      {
+        key: '/home/dingdan1',
+        label: '订单详情',
+      },
+      {
+        key: '/home/dingdan2',
+        label: '订单管理',
+      },
+      {
+        key: '/home/dingdan3',
+        label: '订单打印预览',
+      }
+    ]
+  },
+  {
+    key: '/home/zhifu',
+    icon: React.createElement(UserOutlined),
+    label: '支付管理',
+    children: [
+      {
+        key: '/home/zhifu1',
+        label: '支付交易',
+      },
+      {
+        key: '/home/zhifu2',
+        label: '交易中心',
+      },
+      {
+        key: '/home/zhifu3',
+        label: '账单流水',
+      }
+    ]
+  },
+ 
+  {
+    key: '/home/yhgl',
+    icon: React.createElement(UserOutlined),
+    label: '用户管理',
+    children: [
+      {
+        key: '/home/yhgl1',
+        label: '用户中心',
+      },
+      {
+        key: '/home/yhgl2',
+        label: '用户明显',
+      }
+    ]
+  },
+  {
+    key: '/home/jiaose',
+    icon: React.createElement(UserOutlined),
+    label: '角色管理',
+    children: [
+      {
+        key: '/home/jiaose1',
+        label: '角色管理',
+      }
+    ]
+  }
+]
 const Home = () => {
-  const [openKeys, setOpenKeys] = useState(['sub1']);
-
-  const onOpenChange = (keys) => {
-    const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
-
-    if (rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
-      setOpenKeys(keys);
-    } else {
-      setOpenKeys(latestOpenKey ? [latestOpenKey] : []);
-    }
+  const Navigate = useNavigate()
+  const onClick = (e) => {
+    const { key } = e
+    console.log(222, key, e)
+    Navigate(key, {
+      replace: true,
+    })
   };
-
   return (
-    <Menu
-      className='Menu'
-      mode="inline"
-      openKeys={openKeys}
-      theme="dark"
-      onOpenChange={onOpenChange}
-      style={{
-        width: 256,
-        height: '100%'
-      }}
-      items={items}
-    />
-  );
-};
-
+    <Layout style={{ height: '100%' }}>
+      <Layout style={{ background: 'red' }}>
+        <Sider width={200} className="site-layout-background" style={{ background: 'red' }}>
+          <Menu
+            mode="inline"
+            defaultSelectedKeys={['1']}
+            defaultOpenKeys={['sub1']}
+            style={{
+              height: '100%',
+              borderRight: 0,
+              background: '#ddd'
+            }}
+            items={items2}
+            onClick={(e) => onClick(e)}
+          />
+        </Sider>
+        <Layout
+          style={{
+            padding: '0 24px 24px',
+          }}
+        >
+          <Content
+            className="site-layout-background"
+            style={{
+              padding: 24,
+              margin: 0,
+              minHeight: 280,
+              background: '#fff'
+            }}
+          >
+            <Outlet></Outlet>
+          </Content>
+        </Layout>
+      </Layout>
+    </Layout>
+  )
+}
 export default Home;

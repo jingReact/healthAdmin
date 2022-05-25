@@ -1,30 +1,34 @@
-import { Button, Checkbox, Divider, Form, Input } from 'antd';
-import { Header } from 'antd/lib/layout/layout';
+import { Button, Checkbox, Divider, Form, Input, message } from 'antd';
 import { Outlet, useNavigate } from "react-router-dom";
-
-import  {login} from '../../api/login'
+import axios from 'axios';
+import { useState } from 'react';
+import { login } from '../../api/login'
 import './login.css'
-import {
-    UserOutlined,
-    LockOutlined
-} from '@ant-design/icons'
-
+import {UserOutlined, LockOutlined} from '@ant-design/icons'
 const img = require('../../assets/images/icon_yiju.png')
 const keft_img = require('../../assets/images/left_img.png')
 const Login = (props) => {
+    const pass = [{
+        username: '123456',
+        password: '123456',
+    }]
+    const [data, setData] = useState(pass)
     const navigate = useNavigate()
-    const onFinish = (values) => {
-        console.log('Success:', values);
-        let params={
-            userName:1111
+    const onFinish = async (values) => {
+        try {
+            const v = await login()
+            const { username, password } = values
+            // if (username === 'admin' && password === 'admin') {
+                navigate(`/home`, {
+                    replace: false,
+                    state: data
+                })
+            // }
+            // else {
+            //     message.warning('您的密码输入错误,请重新输入');
+            // }
+        } catch (e) {
         }
-        login(params).then(res=>{
-            console.log(res,666)
-        })
-        navigate(`/home`, {
-            replace: false,
-        })
-        console.log(props, 900)
     };
     const onFinishFailed = (errorInfo) => {
         console.log('Failed:', errorInfo);
@@ -59,7 +63,7 @@ const Login = (props) => {
                             },
                         ]}
                     >
-                        <UserOutlined style={{ color: '#08c' }} className='iconClass' />
+                        {/* <UserOutlined style={{ color: '#08c' }} className='iconClass' /> */}
                         <Input />
                     </Form.Item>
                     <div className='username'>密码</div>
@@ -73,7 +77,7 @@ const Login = (props) => {
                             },
                         ]}
                     >
-                        <LockOutlined style={{ color: '#08c' }} className='iconClass' />
+                        {/* <LockOutlined style={{ color: '#08c' }} className='iconClass' /> */}
                         <Input.Password />
                     </Form.Item>
                     <Form.Item
@@ -87,7 +91,7 @@ const Login = (props) => {
                     </Form.Item>
                 </Form>
             </section>
-            <Outlet />
+            {/* <Outlet /> */}
         </div>
     );
 };

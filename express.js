@@ -3,18 +3,18 @@ const app=express()
 app.get('/sercer', (request, response) => {
     response.setHeader("Access-Control-Allow-Origin", "*");
     const user = {
-        stat: 1,
-        data: [
-            {a:1,b:2}
-        ]
+        userName: 'admin',
+        passWard:'admin',
     }
     response.end(JSON.stringify(user));
 })
-app.post('/sercer/login', (request, response) => {
+app.all('/home', (request, response) => {
     response.setHeader("Access-Control-Allow-Origin", "*");
     const userName={
-        userName:'admin',
-        passWard:'admin',
+        userName:15,
+        passWard:18,
+        number:1223,
+        allmsg:990,
     }
     response.end(userName)
 })

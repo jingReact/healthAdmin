@@ -1,8 +1,9 @@
-import request from "./params";
+import request from "./request";
 export function login(params) {
   return request({
-    url: "http://127.0.0.1:8000/sercer",
+    url: "/sercer",
     method: "GET",
     params,
   });
 }
+

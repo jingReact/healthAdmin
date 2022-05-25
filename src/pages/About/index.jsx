@@ -8,6 +8,7 @@ class About extends Component {
     render() {
         return (
             <div>
+            ewewewewewewe
             </div>
         );
     }
