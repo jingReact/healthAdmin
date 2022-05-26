@@ -19,7 +19,7 @@ const Login = (props) => {
             const v = await login()
             const { username, password } = values
             // if (username === 'admin' && password === 'admin') {
-                navigate(`/home`, {
+                navigate(`/home/list`, {
                     replace: false,
                     state: data
                 })
