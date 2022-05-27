@@ -1,4 +1,4 @@
-import {createStore,applyMiddleware,combineReducers} from 'redux' //创建 store 中间价连接
+import {createStore,,combineReducers} from 'redux' //创建 store 中间价连接
 import {composeWithDevTools} from 'redux-devtools-extension'
 // import connt from './Redurcrs/connt'  // 处理事件的redurcer
 // import people from './Redurcrs/people'

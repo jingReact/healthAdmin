@@ -14,8 +14,8 @@ const Home = () => {
   };
   return (
     <Layout style={{ height: '100%' }}>
-      <Layout style={{ background: 'red' }}>
-        <Sider width={200} className="site-layout-background" style={{ background: 'red' }}>
+      <Layout>
+        <Sider width={200} className="site-layout-background">
           <Menu
             mode="inline"
             defaultSelectedKeys={['/home/list']}

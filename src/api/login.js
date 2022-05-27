@@ -6,4 +6,10 @@ export function login(params) {
     params,
   });
 }
-
+export  function allAbout(params){
+  return  request({
+      method:'GET',
+      url:'/about',
+      params,
+  })
+}
