@@ -171,8 +171,8 @@ function Echarts1() {
         });
     }, []);
     return (
-            <div className='center_ech'>
-            </div>
+        <div className='center_ech'>
+        </div>
     );
 }
 export default Echarts1;

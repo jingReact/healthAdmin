@@ -1,31 +1,23 @@
 import React, { Component, useState, useEffect ,useCallback, useMemo,useRef} from 'react';
 import { AlertOutlined, ApiOutlined, AppstoreAddOutlined, RedditOutlined } from '@ant-design/icons'
+import { useSelector,useDispatch } from 'react-redux';
 import './index.css'
 import { allAbout } from "../../api/login";
 import Echarts1 from './echarts1'
 import Echarts2 from './echarts2'
 import Echarts3 from './echarts3' 
 export const TestContext =React.createContext()
-
 function About() {
     const [v,setv]=useState(0)
     const [m,setm]=useState(0)
     const [unm, serNum] = useState({ num: {} })
-    const refs1=useRef()
-    console.log(refs1,'ref1')
-    // function getDoub(){
-    //     console.log('getDoub调用了')
-    //     return v*2
-    // }
-    const getDoub=useMemo(()=>{
+const dispatch=useDispatch()
+    useSelector(state=>{
+        console.log(state,'state')
+    })
+  const getDoub=useMemo(()=>{
         console.log('getDoub调用了')
         return m*2
-    },[m])
-    const hanc1=useCallback(()=>{
-        setv(v+1)
-    },[v])
-    const hanc2=useCallback(()=>{
-        setv(m+1)
     },[m])
     useEffect(() => {
         allAbout().then(res => {
@@ -33,6 +25,24 @@ function About() {
             console.log(res,4)
         })
     }, [])
+   
+    const refs1=useRef()
+    console.log(refs1,'ref1')
+    const hanc1=useCallback(()=>{
+        setv(v+1)
+        dispatch({
+             type:'SWITCH_MEUN',
+             menuName: '修改后的MEUN'
+          })
+    },[v])
+    const hanc2=useCallback(()=>{
+        setv(m+1)
+    },[m])
+   
+      // function getDoub(){
+    //     console.log('getDoub调用了')
+    //     return v*2
+    // }
     return (
         <div>
             <header className='header'>

@@ -1,14 +1,13 @@
-
-.header{
+.header {
     width: 100%;
     height: 20vh;
     /* background: red; */
     margin: 0;
     display: flex;
     padding: 0;
-    
 }
-.cont{
+
+.cont {
     flex: 1;
     margin: 0 20px;
     display: flex;
@@ -17,50 +16,64 @@
     color: #fff;
     font-size: 16px;
 }
-.num_span{
-    font-size: 33px ;
 
+.num_span {
+    font-size: 33px;
 }
-.header .cont:nth-child(1){
+
+.header .cont:nth-child(1) {
     background-image: linear-gradient(to right, #5572fa, #c377fe);
 }
-.header .cont:nth-child(2){
+
+.header .cont:nth-child(2) {
     background-image: linear-gradient(to right, #ed6981, #f3e3e0);
 }
-.header .cont:nth-child(3){
+
+.header .cont:nth-child(3) {
     background-image: linear-gradient(to right, #42d79d, #a0e459);
 }
-.header .cont:nth-child(4){
+
+.header .cont:nth-child(4) {
     background-image: linear-gradient(to right, #c377fe, #a0e459);
 }
-.RedditOutlined,.AlertOutlined,.ApiOutlined,.AppstoreAddOutlined{
+
+.RedditOutlined,
+.AlertOutlined,
+.ApiOutlined,
+.AppstoreAddOutlined {
     font-size: 64px;
 }
-.actionc_diyljg{
-    height:42vh;
+
+.actionc_diyljg {
+    height: 42vh;
     width: 88vw;
     display: flex;
-    
+
 }
-.center_ech{
+
+.center_ech {
     width: 499px;
     /* flex: 1; */
     box-shadow: 0px 0px 10px 5px #eee;
-    margin:10px 0 10px 17px ;
+    margin: 10px 0 10px 17px;
 
 }
-.ech2{
+
+.ech2 {
     margin-left: 45px;
 }
-.actionc_h2{
+
+.actionc_h2 {
     font-size: 28px;
     font-weight: bold;
 }
-.footer{
+
+.footer {
     width: 87.3vw;
     height: 35vh;
 }
-.center_ech{
+
+.center_ech {
     width: 100%;
     height: 100%;
 }
