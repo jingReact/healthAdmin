@@ -1,17 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
+import './index.css'
 
-
-class About extends Component {
-    componentDidMount() {
-      
-    }
-    render() {
+function About() {
         return (
             <div>
-            ewewewewewewe
+                <header className='header'></header>
+                <section></section>
+                <footer></footer>
             </div>
         );
     }
-}
 
 export default About
