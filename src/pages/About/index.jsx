@@ -30,7 +30,7 @@ function About() {
         console.log(state, 'state1123')
     })
     const getDoub = useMemo(() => {
-        console.log('getDoub调用2323了')
+        console.log('getDoub调用了')
         return m * 2
     }, [m])
     useEffect(() => {
