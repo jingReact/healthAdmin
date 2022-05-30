@@ -73,7 +73,7 @@ function Echarts1() {
                 {
                     text: "定点医疗机构(家)",
                     left: "left",
-                    padding: [10, 20, 30, 35],
+                    padding: [10, 20, 50, 35],
                     textStyle: {
                         color: "#333333",
                         fontSize: 22,

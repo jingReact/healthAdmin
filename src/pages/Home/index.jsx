@@ -1,6 +1,7 @@
-import { LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/icons';
+import { LaptopOutlined, NotificationOutlined, UserOutlined, ExclamationCircleOutlined } from '@ant-design/icons';
 import { Layout, Menu } from 'antd';
 import React from 'react';
+import { Modal, } from 'antd';
 import { useNavigate ,Outlet} from 'react-router-dom'
 const { Header, Content, Sider } = Layout;
 
@@ -85,10 +86,31 @@ const Home = () => {
       replace: true,
     })
   };
+  const logOut = () => {
+    Modal.confirm({
+      title: 'Confirm',
+      icon: <ExclamationCircleOutlined />,
+      content: '您确定要退出登录吗?',
+      okText: '确认',
+      cancelText: '取消',
+      onOk: () => {
+        Navigate('/login', {
+          replace: false
+        })
+      }
+
+    })
+  }
   return (
-    <Layout style={{ height: '100%' }}>
-      <Layout style={{ background: 'red' }}>
-        <Sider width={200} className="site-layout-background" style={{ background: 'red' }}>
+      
+    <Layout style={{ height: '100%'}}>
+        <div className='logOut'>
+          <div className='logOut_d' onClick={logOut}>
+            退出
+          </div>
+        </div>
+      <Layout>
+        <Sider width={200} className="site-layout-background" style={{ height: '100%' }}>
           <Menu
             mode="inline"
             defaultSelectedKeys={['1']}
@@ -120,7 +142,8 @@ const Home = () => {
           </Content>
         </Layout>
       </Layout>
-    </Layout>
+      </Layout>
+
   )
 }
 export default Home;
