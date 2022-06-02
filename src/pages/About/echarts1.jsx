@@ -7,20 +7,23 @@ function Echarts1() {
     const v = useContext(TestContext)
     console.log(v, 90)
     // const [unm,serNum]=useState({num:{}})
+    const show = (myChart) => {
+        return myChart.showLoading({
+            text: "定点医疗机构加载中...",
+            color: "#be72ed",
+            textColor: "#be72ed",
+            maskColor: "rgba(255, 255, 255, 0.2)",
+            zlevel: 0,
+        })
+    }
+    const time = (myChart) => {
+        return setTimeout(() => {
+            myChart.hideLoading()
+        }, 1000);
+    }
     useEffect(() => {
-        // allAbout().then(res=>{
-        //     console.log(res,8888)
-        //     serNum(res.data)
-        //     console.log(unm,987123)
-        // })
         const myChart = echarts.init(document.getElementsByClassName('center_ech')[0]);
-        //  myChart.showLoading({
-        //     text: "定点医疗机构加载中...",
-        //     color: "#be72ed",
-        //     textColor: "#be72ed",
-        //     maskColor: "rgba(255, 255, 255, 0.2)",
-        //     zlevel: 0,
-        //   })
+        show(myChart)
         myChart.setOption({
             tooltip: {
                 trigger: "axis",
@@ -133,6 +136,12 @@ function Echarts1() {
                 },
             ],
         });
+        time(myChart)
+        myChart.on('click', function (v) {
+            console.log(1111, v)
+            show(myChart)
+            time(myChart)
+        })
     }, []);
     return (
         <div className='center_ech'>
