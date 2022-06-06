@@ -1,11 +1,7 @@
 import React, { Component, useState, useEffect, useCallback, useMemo, useRef } from 'react';
-<<<<<<< HEAD
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-=======
->>>>>>> master
 import { AlertOutlined, ApiOutlined, AppstoreAddOutlined, RedditOutlined } from '@ant-design/icons'
-import { useSelector, useDispatch } from 'react-redux';
 import './index.css'
 import { ExclamationCircleOutlined } from '@ant-design/icons';
 import { Modal, } from 'antd';
@@ -18,7 +14,6 @@ function About() {
     const [v, setv] = useState(0)
     const [m, setm] = useState(0)
     const [unm, serNum] = useState({ num: {} })
-<<<<<<< HEAD
     const refs1 = useRef()
     const Navigate = useNavigate()
     const dispatch = useDispatch()
@@ -26,41 +21,10 @@ function About() {
     useSelector(stete => {
         console.log(stete, 'stete')
     })
-=======
-    const dispatch = useDispatch()
-    useSelector(state => {
-        console.log(state, 'state1123')
-    })
-    const getDoub = useMemo(() => {
-        console.log('getDoub调用了')
-        return m * 2
-    }, [m])
-    useEffect(() => {
-        allAbout().then(res => {
-            serNum(res.data)
-            console.log(res, 4)
-        })
-    }, [])
-
-    const refs1 = useRef()
-    console.log(refs1, 'ref1')
-    const hanc1 = useCallback(() => {
-        setv(v + 1)
-        dispatch({
-            type: 'SWITCH_MEUN',
-            menuName: '修改后的MEUN'
-        })
-    }, [v])
-    const hanc2 = useCallback(() => {
-        setv(m + 1)
-    }, [m])
-
->>>>>>> master
     // function getDoub(){
     //     console.log('getDoub调用了')
     //     return v*2
     // }
-<<<<<<< HEAD
     const getDoub = useMemo(() => {
         console.log('getDoub调用了')
         return m * 2
@@ -96,8 +60,6 @@ function About() {
 
     //     })
     // }
-=======
->>>>>>> master
     return (
         <div style={{ height: '100%' }}>
             {/* <div className='logOut'>
