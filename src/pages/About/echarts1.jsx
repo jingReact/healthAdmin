@@ -1,26 +1,29 @@
 import * as  echarts from "echarts";
-import React, { useEffect ,useState,useContext} from "react";
+import React, { useEffect, useState, useContext } from "react";
 import './index.css'
-import {TestContext}  from './index'
+import { TestContext } from './index'
 // import { allAbout } from "../../api/login";
 function Echarts1() {
-    const v=useContext(TestContext)
-    console.log(v,90)
+    const v = useContext(TestContext)
+    console.log(v, 90)
     // const [unm,serNum]=useState({num:{}})
+    const show = (myChart) => {
+        return myChart.showLoading({
+            text: "定点医疗机构加载中...",
+            color: "#be72ed",
+            textColor: "#be72ed",
+            maskColor: "rgba(255, 255, 255, 0.2)",
+            zlevel: 0,
+        })
+    }
+    const time = (myChart) => {
+        return setTimeout(() => {
+            myChart.hideLoading()
+        }, 1000);
+    }
     useEffect(() => {
-        // allAbout().then(res=>{
-        //     console.log(res,8888)
-        //     serNum(res.data)
-        //     console.log(unm,987123)
-        // })
         const myChart = echarts.init(document.getElementsByClassName('center_ech')[0]);
-        //  myChart.showLoading({
-        //     text: "定点医疗机构加载中...",
-        //     color: "#be72ed",
-        //     textColor: "#be72ed",
-        //     maskColor: "rgba(255, 255, 255, 0.2)",
-        //     zlevel: 0,
-        //   })
+        show(myChart)
         myChart.setOption({
             tooltip: {
                 trigger: "axis",
@@ -28,7 +31,7 @@ function Echarts1() {
             },
             xAxis: {
                 type: "category",
-                data: ['武汉', '襄阳', '十堰', '随州', '荆门', '天门', '黄石','安陆','孝感'],
+                data: ['武汉', '襄阳', '十堰', '随州', '荆门', '天门', '黄石', '安陆', '孝感'],
                 triggerEvent: true,
                 interval: 2,
                 axisLabel: {
@@ -83,7 +86,7 @@ function Echarts1() {
             ],
             series: [
                 {
-                    data: [1, 2, 3, 4, 5, 67, 78, 8,9],
+                    data: [1, 2, 3, 4, 5, 67, 78, 8, 9],
                     type: "bar",
                     barWidth: 28, //柱图宽度
                     itemStyle: {
@@ -115,7 +118,7 @@ function Echarts1() {
                     type: 'line',
                     symbol: "circle", //拐点样式
                     symbolSize: 10, //拐点大小
-                    data: [0, 2, 4, 5, 6, 7, 6,8,9],
+                    data: [0, 2, 4, 5, 6, 7, 6, 8, 9],
                     itemStyle: {
                         normal: {
                             lineStyle: {
@@ -133,10 +136,16 @@ function Echarts1() {
                 },
             ],
         });
+        time(myChart)
+        myChart.on('click', function (v) {
+            console.log(1111, v)
+            show(myChart)
+            time(myChart)
+        })
     }, []);
     return (
         <div className='center_ech'>
-            </div>
+        </div>
     );
 }
 
