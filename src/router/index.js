@@ -16,39 +16,37 @@ const routes = [
   {
     path: "/home",
     element: <Home />,
-    children:[
-      { path: "list",
-       element: <About />
-      },
+    children: [
+      { path: "list", element: <About /> },
       {
-        path:'dingdan1',
+        path: "dingdan1",
         element: <Dingdan1 />,
       },
       {
-        path:'dingdan2',
+        path: "dingdan2",
         element: <Dingdan2 />,
       },
       {
-        path:'dingdan3',
+        path: "dingdan3",
         element: <Dingdan3 />,
       },
       {
-        path:'zhifu1',
+        path: "zhifu1",
         element: <Zfjy />,
       },
       {
-        path:'zhifu2',
+        path: "zhifu2",
         element: <Zfjy2 />,
       },
       {
-        path:'zhifu3',
+        path: "zhifu3",
         element: <Zfjy3 />,
-      }
-    ]
+      },
+    ],
   },
   {
     path: "*",
-    element: <Navigate to="/login" />
+    element: <Navigate to="/login" />,
   },
 ];
 export default routes;
