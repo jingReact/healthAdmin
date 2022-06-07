@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+.header{
+    height: 50px;
+    weight:100%;
+    background: #ddd;
+=======
 .header {
     width: 100%;
     height: 20vh;
@@ -74,6 +80,7 @@
 .center_ech {
     width: 100%;
     height: 100%;
+<<<<<<< HEAD
 }
 .logOut {
     position: absolute;
@@ -89,4 +96,7 @@
     padding: 0 20px;
     
 
+=======
+>>>>>>> ead146bcdb104f249bf80d008396742ba20b86dc
+>>>>>>> a65fdedc9168a6548e307c34f0f52d56b970c184
 }
