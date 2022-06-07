@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 import { LaptopOutlined, NotificationOutlined, UserOutlined, ExclamationCircleOutlined } from '@ant-design/icons';
-=======
->>>>>>> a65fdedc9168a6548e307c34f0f52d56b970c184
 import { Layout, Menu } from 'antd';
 import React from 'react';
 import { Modal, } from 'antd';
