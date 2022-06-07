@@ -1,17 +1,3 @@
-<<<<<<< HEAD
-import React from 'react';
-import './index.css'
-
-function About() {
-        return (
-            <div>
-                <header className='header'></header>
-                <section></section>
-                <footer></footer>
-            </div>
-        );
-    }
-=======
 import React, { Component, useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -127,6 +113,5 @@ function About() {
         </div>
     );
 }
->>>>>>> ead146bcdb104f249bf80d008396742ba20b86dc
 
 export default About

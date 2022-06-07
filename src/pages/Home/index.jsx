@@ -1,7 +1,11 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { LaptopOutlined, NotificationOutlined, UserOutlined, ExclamationCircleOutlined } from '@ant-design/icons';
 =======
 >>>>>>> master
+=======
+import { LaptopOutlined, NotificationOutlined, UserOutlined, ExclamationCircleOutlined } from '@ant-design/icons';
+>>>>>>> origin/master
 import { Layout, Menu } from 'antd';
 import React from 'react';
 import { Modal, } from 'antd';

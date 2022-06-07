@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-.header{
-    height: 50px;
-    weight:100%;
-    background: #ddd;
-=======
+
+
 .header {
     width: 100%;
     height: 20vh;
@@ -81,6 +77,9 @@
     width: 100%;
     height: 100%;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 }
 .logOut {
     position: absolute;
@@ -95,8 +94,11 @@
     color: #fff;
     padding: 0 20px;
     
+<<<<<<< HEAD
 
 =======
 >>>>>>> ead146bcdb104f249bf80d008396742ba20b86dc
 >>>>>>> master
+=======
+>>>>>>> origin/master
 }
