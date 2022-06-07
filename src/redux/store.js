@@ -1,4 +1,4 @@
 import { createStore } from "redux";
-import redurce from "./redurce";
+import redurce from "./redurces";
 const store = createStore(redurce);
 export default store;
